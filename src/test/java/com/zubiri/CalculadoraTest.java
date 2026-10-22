@@ -11,9 +11,9 @@ class CalculadoraTest {
         // 1. Preparación (Arrange)
         Calculadora calc = new Calculadora();
         // 2. Ejecución (Act)
-        int resultado = calc.suma(2, 2);
+        int resultado = calc.suma(2, 3);
         // 3. Verificación (Assert)
-        assertEquals(5, resultado, "La suma 2 + 2 debería ser 5");
+        assertEquals(5, resultado, "La suma 2 + 3 debería ser 5");
     }
 
     @Test
