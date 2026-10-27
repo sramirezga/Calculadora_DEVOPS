@@ -19,7 +19,7 @@ class CalculadoraTest {
     @Test
     public void restaTest() {
         Calculadora calculadora = new Calculadora();
-        int rest = calculadora.resta(13, 4);
+        int rest = calculadora.resta(10, 4);
 
         assertEquals(6, rest, "La resta de diez menos cuatro debe ser 6");
     }
