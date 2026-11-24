@@ -15,7 +15,13 @@ public class Calculadora {
 
     public static void main(String[] args) {
         Calculadora calculadora = new Calculadora();
-        System.out.println(calculadora.suma(2, 3));
+
+        System.out.println("La suma es: " + calculadora.suma(2, 3));
+
+        System.out.println("La resta es: " + calculadora.resta(8, 3));
+
+        System.out.println("La multplicación es: " + calculadora.multiplicacion(5, 3));
+
     }
 
 }
