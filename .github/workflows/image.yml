@@ -1,0 +1,42 @@
+
+name: Build and publish Docker image
+#nuevo comentario
+on:
+  push:
+    branches: [main]
+#otro comneatio
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build and test with Maven
+        run: mvn -B clean package
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.dockerhub_username }}
+          password: ${{ secrets.dockerhub_password }}
+
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.dockerhub_username }}/${{ secrets.DOCKERHUB_PROYECT }}:latest
